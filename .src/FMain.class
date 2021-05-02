@@ -1,0 +1,53 @@
+' Gambas class file
+
+Public Sub Form_Open()
+
+  Settings.Read(Me)
+  ValueBoxCUOTA1.SetFocus()
+
+End
+
+Public Sub Form_Close()
+
+  Settings.WRITE(Me)
+
+End
+
+Public Sub ValueBoxCUOTA1_KeyPress()
+
+  If Key.Code = Key.ENTER Or Key.Code = Key.Return Or Key.Code = Key.tab Then
+    ValueBoxCUOTA2.SetFocus()
+
+  Endif
+
+End
+
+Public Sub ValueBoxCUOTA2_KeyPress()
+
+  If Key.Code = Key.ENTER Or Key.Code = Key.Return Or Key.Code = Key.tab Then
+    RECALCULAR()
+    ValueBoxCUOTA1.SetFocus()
+  Endif
+
+End
+
+Public Sub RECALCULAR()
+
+  ValueBoxIMPORTE2.Value = Round(ValueBoxIMPORTE1.Value * ValueBoxCUOTA1.Value / ValueBoxCUOTA2.Value, -2)
+
+  ValueBoxBENEFICIO.Value = Round(ValueBoxCUOTA1.Value * ValueBoxIMPORTE1.VALUE - ValueBoxIMPORTE2.Value - ValueBoxIMPORTE1.Value, -2)
+
+  ValueBoxIMPORTE3.Value = Round(ValueBoxIMPORTE1.Value * ValueBoxCUOTA1.Value / ValueBoxCUOTA2.Value, 0)
+
+  ValueBoxBENEFICIO2.Value = Round(ValueBoxCUOTA2.Value * ValueBoxIMPORTE3.VALUE - ValueBoxIMPORTE3.Value - ValueBoxIMPORTE1.Value, -2)
+
+End
+
+Public Sub ValueBoxIMPORTE1_KeyPress()
+
+  If Key.Code = Key.ENTER Or Key.Code = Key.Return Then
+    RECALCULAR()
+
+  Endif
+
+End

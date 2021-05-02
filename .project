@@ -1,0 +1,24 @@
+# Gambas Project File 3.0
+Title=calculadorapu
+Startup=FMain
+Icon=apu_calc.png
+Version=0.0.1
+Component=gb.image
+Component=gb.gui
+Component=gb.form
+Component=gb.settings
+Description="simple calculadora apu"
+Authors="Julio Sanchez Berro"
+TabSize=2
+Translate=1
+Language=en_US
+Maintainer=minino
+Address=minino@minino-ThinkCentre-M82
+License=General Public License
+PackageName=calculadorapu-0.0.1
+CreateEachDirectory=1
+Packager=1
+Systems=debian
+Menus=debian:"Applications/Education"
+Categories=debian:"Education"
+Groups=debian:"education"
