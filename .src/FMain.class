@@ -46,6 +46,8 @@ End
 
 Public Sub RECALCULAR()
 
+  ValueBoxIMPORTE1.Background = Color.white
+
   Try ValueBoxIMPORTE2.Value = Round(ValueBoxIMPORTE1.Value * ValueBoxCUOTA1.Value / ValueBoxCUOTA2.Value, -2)
 
   Try ValueBoxBENEFICIO.Value = Round(ValueBoxCUOTA1.Value * ValueBoxIMPORTE1.VALUE - ValueBoxIMPORTE2.Value - ValueBoxIMPORTE1.Value, -2)
@@ -55,6 +57,16 @@ Public Sub RECALCULAR()
   Try ValueBoxBENEFICIO2.Value = Round(ValueBoxCUOTA2.Value * ValueBoxIMPORTE3.VALUE - ValueBoxIMPORTE3.Value - ValueBoxIMPORTE1.Value, -2)
 
   Try ValueBoxBENEFICIO1redondeo.value = Round(ValueBoxCUOTA1.Value * ValueBoxIMPORTE1.VALUE - ValueBoxIMPORTE3.Value - ValueBoxIMPORTE1.Value, -2)
+
+  If ValueBoxBENEFICIO2.Value < 0 Then
+
+    Try ValueBoxIMPORTE3.Value = Round(ValueBoxIMPORTE1.Value * ValueBoxCUOTA1.Value / ValueBoxCUOTA2.Value, 0) + 1
+
+    Try ValueBoxBENEFICIO2.Value = Round(ValueBoxCUOTA2.Value * ValueBoxIMPORTE3.VALUE - ValueBoxIMPORTE3.Value - ValueBoxIMPORTE1.Value, -2)
+
+    Try ValueBoxBENEFICIO1redondeo.value = Round(ValueBoxCUOTA1.Value * ValueBoxIMPORTE1.VALUE - ValueBoxIMPORTE3.Value - ValueBoxIMPORTE1.Value, -2)
+
+  Endif
 
 End
 
