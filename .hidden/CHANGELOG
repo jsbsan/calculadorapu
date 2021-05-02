@@ -1,3 +1,15 @@
+* Sun May 02 2021 jsbsan <jusabejusabe@gmail.com> 0.0.2
+- try el calculos por si hay division entre cero
+
+* Sun May 02 2021 jsbsan <jusabejusabe@gmail.com> 0.0.2
+- si pierde el foco importe1 se recalcula
+
+* Sun May 02 2021 jsbsan <jusabejusabe@gmail.com> 0.0.2
+- mejora en usabilidad y redondeo indicado en beneficio1
+
+* Sun May 02 2021 jsbsan <jusabejusabe@gmail.com> 0.0.1
+- tabla de casas
+
 * Sun May 02 2021 minino <minino@minino-ThinkCentre-M82> 0.0.1
 - Lanzamiento inicial
 

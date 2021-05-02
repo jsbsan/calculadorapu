@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,71,15)
+  MoveScaled(0,0,94,15)
   Icon = Picture["apu_calc.png"]
   { ValueBoxCUOTA1 ValueBox
     MoveScaled(11,1,11,3)
@@ -25,7 +25,7 @@
   }
   { Label3 Label
     MoveScaled(27,1,10,3)
-    Text = ("Importe: ")
+    Text = ("Importe 1: ")
   }
   { ValueBoxIMPORTE2 ValueBox
     MoveScaled(37,5,8,3)
@@ -44,37 +44,64 @@
   }
   { Label5 Label
     MoveScaled(27,5,10,3)
-    Text = ("Importe2: ")
-  }
-  { Timer1 #Timer
-    #MoveScaled(4,8)
+    Text = ("Importe 2: ")
   }
   { Separator1 Separator
     MoveScaled(46,-1,3,16)
   }
   { Label6 Label
-    MoveScaled(51,5,10,3)
+    MoveScaled(49,4,10,3)
+    Alignment = Align.Right
     Text = ("Importe2: ")
   }
   { ValueBoxIMPORTE3 ValueBox
-    MoveScaled(61,5,8,3)
+    MoveScaled(61,4,8,3)
     Background = &HFFCF3F&
     Alignment = Align.Right
   }
   { ValueBoxBENEFICIO2 ValueBox
-    MoveScaled(61,10,8,3)
+    MoveScaled(61,12,8,3)
     Background = &HFFCF3F&
     Alignment = Align.Right
   }
   { Label7 Label
-    MoveScaled(49,10,10,3)
+    MoveScaled(49,12,10,3)
     Alignment = Align.Right
     Text = ("Beneficio2:")
   }
   { Label8 Label
-    MoveScaled(51,1,17,3)
+    MoveScaled(51,0,17,3)
     Font = Font["Bold,Italic"]
     Alignment = Align.Center
     Text = ("REDONDEANDO")
+  }
+  { PictureBox1 PictureBox
+    MoveScaled(73,-1,21,17)
+    Picture = Picture["casas.png"]
+    Stretch = True
+  }
+  { Separator2 Separator
+    MoveScaled(0,9,26,1)
+  }
+  { ValueBoxCuota2aCero ValueBox
+    MoveScaled(12,11,11,3)
+    Background = &HE79FFF&
+  }
+  { Label9 Label
+    MoveScaled(1,11,11,3)
+    Text = ("Cuota 2  \"0\":;")
+  }
+  { Separator3 Separator
+    MoveScaled(24,9,2,6)
+  }
+  { Label10 Label
+    MoveScaled(49,8,10,3)
+    Alignment = Align.Right
+    Text = ("Beneficio1:")
+  }
+  { ValueBoxBENEFICIO1redondeo ValueBox
+    MoveScaled(61,8,8,3)
+    Background = &HFFCF3F&
+    Alignment = Align.Right
   }
 }

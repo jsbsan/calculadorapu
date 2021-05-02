@@ -1,5 +1,8 @@
 ' Gambas class file
 
+Public importe As Float
+Public textboxtmp As TextBox
+
 Public Sub Form_Open()
 
   Settings.Read(Me)
@@ -16,8 +19,14 @@ End
 Public Sub ValueBoxCUOTA1_KeyPress()
 
   If Key.Code = Key.ENTER Or Key.Code = Key.Return Or Key.Code = Key.tab Then
+    textboxtmp = ValueBoxCUOTA2.Children[0]
+    textboxtmp.pos = 0
+    textboxtmp.SelectAll()
+
     ValueBoxCUOTA2.SetFocus()
 
+    importe = Round(ValueBoxIMPORTE1.value * ValueBoxCUOTA1.value, -2)
+    Try ValueBoxCuota2aCero.value = Round(importe / (importe - ValueBoxIMPORTE1.value), -2)
   Endif
 
 End
@@ -26,6 +35,10 @@ Public Sub ValueBoxCUOTA2_KeyPress()
 
   If Key.Code = Key.ENTER Or Key.Code = Key.Return Or Key.Code = Key.tab Then
     RECALCULAR()
+    textboxtmp = ValueBoxCUOTA1.Children[0]
+    textboxtmp.pos = 0
+    textboxtmp.SelectAll()
+
     ValueBoxCUOTA1.SetFocus()
   Endif
 
@@ -33,13 +46,15 @@ End
 
 Public Sub RECALCULAR()
 
-  ValueBoxIMPORTE2.Value = Round(ValueBoxIMPORTE1.Value * ValueBoxCUOTA1.Value / ValueBoxCUOTA2.Value, -2)
+  Try ValueBoxIMPORTE2.Value = Round(ValueBoxIMPORTE1.Value * ValueBoxCUOTA1.Value / ValueBoxCUOTA2.Value, -2)
 
-  ValueBoxBENEFICIO.Value = Round(ValueBoxCUOTA1.Value * ValueBoxIMPORTE1.VALUE - ValueBoxIMPORTE2.Value - ValueBoxIMPORTE1.Value, -2)
+  Try ValueBoxBENEFICIO.Value = Round(ValueBoxCUOTA1.Value * ValueBoxIMPORTE1.VALUE - ValueBoxIMPORTE2.Value - ValueBoxIMPORTE1.Value, -2)
 
-  ValueBoxIMPORTE3.Value = Round(ValueBoxIMPORTE1.Value * ValueBoxCUOTA1.Value / ValueBoxCUOTA2.Value, 0)
+  Try ValueBoxIMPORTE3.Value = Round(ValueBoxIMPORTE1.Value * ValueBoxCUOTA1.Value / ValueBoxCUOTA2.Value, 0)
 
-  ValueBoxBENEFICIO2.Value = Round(ValueBoxCUOTA2.Value * ValueBoxIMPORTE3.VALUE - ValueBoxIMPORTE3.Value - ValueBoxIMPORTE1.Value, -2)
+  Try ValueBoxBENEFICIO2.Value = Round(ValueBoxCUOTA2.Value * ValueBoxIMPORTE3.VALUE - ValueBoxIMPORTE3.Value - ValueBoxIMPORTE1.Value, -2)
+
+  Try ValueBoxBENEFICIO1redondeo.value = Round(ValueBoxCUOTA1.Value * ValueBoxIMPORTE1.VALUE - ValueBoxIMPORTE3.Value - ValueBoxIMPORTE1.Value, -2)
 
 End
 
@@ -49,5 +64,11 @@ Public Sub ValueBoxIMPORTE1_KeyPress()
     RECALCULAR()
 
   Endif
+
+End
+
+Public Sub ValueBoxIMPORTE1_GotFocus()
+
+  RECALCULAR()
 
 End
